@@ -10,3 +10,5 @@ This repository contains 2 simulink files:
 ### Steps to use the controller:
 - In order to generate a DLL, the controller has to be initialized first. All you need to do is to open "InitCompDISCON.m", set the flag 'GenerateDLL' to true, then run   the file.  
 - If you are interested in running the OpenFAST example in Simulink, first, you will need the input files to run OpenFAST, which are not provided here, but can be downloaded from OpenFAST github repository. Once the input files are set up, run "Run_OpenLoop.m" file.
+
+For the time being, only the NREL5MW atop the OC3 floater FOWT is considered, however, an extension to the other turbines and floaters will be included in the future.
