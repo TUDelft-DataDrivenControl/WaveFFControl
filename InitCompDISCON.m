@@ -1,3 +1,4 @@
+clear all; close all; clc
 % A script used to initialize the controller before compiling, then compile it to get a *.dll file.
 % This script must be run before starting the compilation or the simulation.
 % For compilation purposes, this script should be run separately. 
@@ -7,15 +8,22 @@
 TimeStep           =  0.05;        % Simulation time step (s)
 Turbine            = 'NREL5MW';    % Turbines: NREL5MW, DTU10MW, IEA10MW, IEA15MW
 TurbineType        = 'Offshore';   % Turbine foundation type ['Offshore' or 'Onshore']. 
-GenerateDLL        = false;        % A switch for DLL Generation
-
+GenerateDLL        = true;        % A switch for DLL Generation
+% load NREL5MW.mat 
+% 
+% Control.Pitch.Min=-5
+% Str=0.25;
+% Freq_Mixing=0.25*9/126;
+% P_InitAngle=0
+% Kopt=Control.Torque.OptGain;
+% Control.DT=TimeStep;
 % FF controller 
 WindSpeed          = 16;           % Operating point used to define the corresponding linear model     
 Kff_gain           = 0.3;          % A static gain to manipulate the intensity of the FF controller  
 %% Controller parameters
 % In this section, the turbine parameters are defined 
 DirContents    = cellstr(ls);
-%TurbParamsFile = DirContents(contains(DirContents,Turbine,'IgnoreCase',true) & endsWith(DirContents, '.m'));      
+% %TurbParamsFile = DirContents(contains(DirContents,Turbine,'IgnoreCase',true) & endsWith(DirContents, '.m'));      
 TurbParamsFile = fullfile(['ControlParams_', Turbine, '.m']);
 run(TurbParamsFile);
 
@@ -28,9 +36,9 @@ run(TurbParamsFile);
 
 if GenerateDLL == 1    
     RemoveFolders = DirContents(strcmpi(DirContents, ['slprj', 'rtw']));
-    rmdir(RemoveFolders, 's')
+%    rmdir(RemoveFolders, 's')
     
     % Now that the folders have been removed the compiling process can take place
     %rtwbuild('DISCON_NREL5MW_DLL_Generation');
-    rtwbuild(['DISCON_' Turbine '_DLL_Generation']);
+    rtwbuild(['DISCON_' Turbine '_WaveFF']);
 end
