@@ -51,4 +51,10 @@ Gd_Mwave                        = c2d(Sys{OperatingPoint}('omega_r','M_{hydro}')
 Gp                              = c2d(Sys{OperatingPoint}('omega_r','beta_c'),Control.TimeStep,'tustin');  
 InvGp                           = inv(Gp);
 
-
+s=tf('s');
+omega                           = 0.208;
+beta                            = 0.02;
+beta2                           = 0.2;
+notch                           = (s^2 + 2*omega*beta*s + omega^2)/(s^2 + 2*omega*beta2*s +omega^2);
+%Notch                           = (s^2 + 2*Wnotch*beta*s + Wnotch^2)/(s^2 + 2*Wnotch*beta2*s +Wnotch^2);
+InvGp                           = InvGp*c2d(notch,Control.TimeStep,'tustin');
