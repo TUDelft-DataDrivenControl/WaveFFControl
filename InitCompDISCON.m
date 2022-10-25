@@ -1,5 +1,5 @@
 clear all; close all; clc
-% A script used to initialize the controller before compiling, then compile it to get a *.dll file.
+% A script used to initialize the controller before compiling, then compile it to get a *.dll, or *.so file when run on a Windows or Linux machine, respectively.
 % This script must be run before starting the compilation or the simulation.
 % For compilation purposes, this script should be run separately. 
 
