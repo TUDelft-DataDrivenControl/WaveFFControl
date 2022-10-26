@@ -15,3 +15,5 @@ This repository contains 2 simulink files:
 
 For the time being, only the NREL5MW atop the OC3 floater FOWT is considered, however, an extension to the other turbines and floaters will be included in the future.
 
+## Referencing
+In the event of publication of work resulting from the use of the controller, proper referencing to this repository should be included. 
