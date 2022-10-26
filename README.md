@@ -6,7 +6,7 @@ In order to run such files, you need the precompiled binaries from OpenFAST v3.0
 If you wish to run it with other OpenFAST versions, the corresponding input files should be used as well as the proper Simulink block corresponding to the version of interest.
 
 This repository contains 2 simulink files:
-1) DISCON_NREL5MW_WaveFF.slx: The file used to compile a DLL to be used either with OpenFAST or Qblade.
+1) DISCON_NREL5MW_WaveFF.slx: The file used to compile a DLL file on Windows, or an SO file on Linux, to be used either with OpenFAST or QBlade.
 2) OpenFAST_SFunc_NREL5MW_FF.slx: An example of an OpenFAST model in Simulink.
 
 ### Steps to use the controller:
