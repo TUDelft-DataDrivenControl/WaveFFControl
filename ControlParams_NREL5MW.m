@@ -40,15 +40,13 @@ Control.Torque.VS_RtPwr         =       5296610.0;              % Rated generato
 Control.Torque.VS_SlPc          =       10.0;                   % Rated generator slip percentage in Region 2 1/2.
 
 %% FF Controller
-OpPoints = [4:10, 11.4 12:25];
-OperatingPoint                  = find(OpPoints == WindSpeed);
 Control.GainKff                 = Kff_gain;                     
 
 load('NREL5MW_LinModels_Surge_Pitch_DOFs.mat')
 
-Gd_Fwave                        = c2d(Sys{OperatingPoint}('omega_r','F_{hydro}'),Control.TimeStep,'tustin');  
-Gd_Mwave                        = c2d(Sys{OperatingPoint}('omega_r','M_{hydro}'),Control.TimeStep,'tustin');  
-Gp                              = c2d(Sys{OperatingPoint}('omega_r','beta_c'),Control.TimeStep,'tustin');  
+Gd_Fwave                        = c2d(LinModel('omega_r','F_{hydro}'),Control.TimeStep,'tustin');  
+Gd_Mwave                        = c2d(LinModel('omega_r','M_{hydro}'),Control.TimeStep,'tustin');  
+Gp                              = c2d(LinModel('omega_r','beta_c'),Control.TimeStep,'tustin');  
 InvGp                           = inv(Gp);
 
 s=tf('s');
