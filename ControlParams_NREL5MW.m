@@ -56,3 +56,6 @@ beta2                           = 0.2;
 notch                           = (s^2 + 2*omega*beta*s + omega^2)/(s^2 + 2*omega*beta2*s +omega^2);
 %Notch                           = (s^2 + 2*Wnotch*beta*s + Wnotch^2)/(s^2 + 2*Wnotch*beta2*s +Wnotch^2);
 InvGp                           = InvGp*c2d(notch,Control.TimeStep,'tustin');
+
+%% Gain Scheduling
+Control.GainDiff = [0.155706084411910	1.01479542958865	1.24691665562030	1.19371273878682	1.08653882075962	1	0.927495080847099	0.867510961867667	0.821129014793288	0.775416430688680	0.729995289892292	0.699554400897096	0.672064849124065	0.647786329534846	0.626659315021524];
