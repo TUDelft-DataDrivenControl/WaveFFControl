@@ -42,7 +42,7 @@ Control.Torque.VS_SlPc          =       10.0;                   % Rated generato
 %% FF Controller
 Control.GainKff                 = Kff_gain;                     
 
-load('NREL5MW_LinModels_Surge_Pitch_DOFs.mat')
+load('NREL5MW_LinModel_Surge_Pitch_DOFs.mat')
 
 Gd_Fwave                        = c2d(LinModel('omega_r','F_{hydro}'),Control.TimeStep,'tustin');  
 Gd_Mwave                        = c2d(LinModel('omega_r','M_{hydro}'),Control.TimeStep,'tustin');  
